@@ -3,16 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Anketa</title>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+  	</script>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 <body>
 	
-	<div class="ui main container segment">
-			<div class="ui huge header">Anketa o korišćenju elektronskog bankarstva</div>
+	<div style="z-index: 1;" class="ui main container">
+			<div class="ui huge header"><span class="title">Anketa o korišćenju elektronskog bankarstva</span></div>
+			<hr style="margin-bottom: 20px;">
 				<form class="ui form" action="/survey" method="post">
 					<div class="inline fields">
-						<label for="gender">Pol:</label>
+						<label id="label">Pol:</label>
 						<div class="field">
 							<div class="ui radio checkbox">
 								<label>Muški</label>
@@ -26,18 +31,246 @@
 							</div>
 						</div>
 					</div>
+					<div class="inline fields">
+						<label id="label">Godine:</label>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>18-35</label>
+								<input type="radio" name="year" value="18-35">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>36-55</label>
+								<input type="radio" name="year" value="36-55">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>56 i više</label>
+								<input type="radio" name="year" value="56+">
+							</div>
+						</div>
+					</div>
+					<div class="grouped fields">
+						<label id="label">Nivo obrazovanja:</label>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>IV stepen - SSS(srednja škola)</label>
+								<input type="radio" name="education" value="IV">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>VI stepen - VSS(viša skola)</label>
+								<input type="radio" name="education" value="VI">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>VII stepen - VSS(fakultet) i više</label>
+								<input type="radio" name="education" value="VII">
+							</div>
+						</div>
+					</div>
+					<div class="inline fields">
+						<label id="label">Da li koristite usluge elektronskog bankarstva?</label>
+						<div class="field">
+							<div id="decisionOn1" class="ui radio checkbox">
+								<label>Da</label>
+								<input type="radio" name="useEB" value="DA">
+							</div>
+						</div>
+						<div class="field">
+							<div id="decisionOn2" class="ui radio checkbox">
+								<label>Ne</label>
+								<input type="radio" name="useEB" value="NE">
+							</div>
+						</div>
+					</div>
+					<div id="option1">
+						<div class="grouped fields">
+							<label id="label">Koje od navedenih usluga koristite?</label>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Uvid u trenutno stanje na računu</label>
+									<input type="radio" name="serviceEB1" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Pregled i štampu izvoda</label>
+									<input type="radio" name="serviceEB2" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Domaći platni promet</label>
+									<input type="radio" name="serviceEB3" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Međunarodni platni promet</label>
+									<input type="radio" name="serviceEB4" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Kupoprodaja deviza</label>
+									<input type="radio" name="serviceEB5" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Uvid u kursnu listu određene banke</label>
+									<input type="radio" name="serviceEB6" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Uvid u štednju, platne kartice i kredite</label>
+									<input type="radio" name="serviceEB7" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Evidenciju priliva i odliva sredstava</label>
+									<input type="radio" name="serviceEB8" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Pregled prometa za određeni period</label>
+									<input type="radio" name="serviceEB9" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Naručivanje čekova</label>
+									<input type="radio" name="serviceEB10" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui checkbox special">
+									<label>Plaćanje računa</label>
+									<input type="radio" name="serviceEB11" value="DA">
+								</div>
+							</div>
+							<div class="field">
+								<div id="special-radio" class="ui checkbox">
+									<label>Sve od navedenog</label>
+									<input type="radio" name="serviceEB12" value="DA">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="option2">
+						<div class="grouped fields">
+							<label id="label">Zašto ne koristite usluge elektronskog bankarstva?</label>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Nemate uslove za koriščenje ovih usluga</label>
+									<input type="radio" name="serviceNoEB" value="1">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Preferirate tradicionalan način pružanja usluge</label>
+									<input type="radio" name="serviceNoEB" value="2">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Nedovoljno poznavanje elektronskog bankarstva</label>
+									<input type="radio" name="serviceNoEB" value="3">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Nedostatak sigurnosti u izvršenje transakcija</label>
+									<input type="radio" name="serviceNoEB" value="4">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Mogućnost zloupotrebe sredstava</label>
+									<input type="radio" name="serviceNoEB" value="5">
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="grouped fields">
+							<label id="label">Po Vašem mišljenju, prilikom korišćenja elektronskih bankarskih usluga Vaš novac je?</label>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Potpuno nesiguran</label>
+									<input type="radio" name="opinion1EB" value="1">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Više nesiguran nego siguran</label>
+									<input type="radio" name="opinion1EB" value="2">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Više siguran nego nesiguran</label>
+									<input type="radio" name="opinion1EB" value="3">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Potpuno siguran</label>
+									<input type="radio" name="opinion1EB" value="4">
+								</div>
+							</div>
+						</div>
+					
+						<div class="grouped fields">
+							<label id="label">Koja od sledećih tvrdnji opisuje Vaš trenutni stav prema elektronskom bankarstvu?</label>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Koristim elektronske usluge već neko vreme</label>
+									<input type="radio" name="opinion2EB" value="1">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Nisam znao/la za elektronsko bankarstvo ranije - sada sam veoma zainteresovan/a</label>
+									<input type="radio" name="opinion2EB" value="2">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Znao/la sam za eletronsko bankarstvo i ranije - ne želim da ga koristim</label>
+									<input type="radio" name="opinion2EB" value="3">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Znao/la sam i ranije za elektronsko bankarstvo - koristiću ga</label>
+									<input type="radio" name="opinion2EB" value="4">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<label>Nisam znao/la za elektronsko bankarstvo ranije i dalje me ne zanima</label>
+									<input type="radio" name="opinion2EB" value="5">
+								</div>
+							</div>
+						</div>
+						<button class="ui inverted purple button">Pošalji</button>
 				</form>
-			</div>
 	</div>
-	<script
-  		src="https://code.jquery.com/jquery-3.2.1.min.js"
-  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  		crossorigin="anonymous">
-  	</script>
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
 	<script type="text/javascript">
 		$('.ui.radio.checkbox')
   			.checkbox();
+  		$('.ui.checkbox')
+  			.checkbox();
 	</script>
+	<script type="text/javascript" src="/js/myscript.js"></script>
 </body>
 </html>

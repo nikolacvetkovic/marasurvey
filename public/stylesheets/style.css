@@ -1,18 +1,36 @@
-html {
-	height: 100%;
-}
+/*html {*/
+/*	height: 100%;*/
+/*}*/
 
 body {
 	background-image: url(https://source.unsplash.com/-WW8jBak7bo);
-	background-repeat: no-repeat;
+	/*background-repeat: no-repeat;*/
 	background-size: cover;
-	height: 100%;
+	/*height: 100%;*/
+	font-family: Comfortaa;
 }
 
-#form-style {
-	width: 50%;
+div.ui.main.container {
+	background-color: rgb(234, 241, 255);
+	padding: 20px;
+}
+.header {
+    text-align: center;
 }
 
-.page-header {
-	text-align: center;
+.title {
+	color: rgb(214, 90, 255);
+}
+
+hr {
+	color: rgb(214, 90, 255);
+}
+
+#option1, #option2 {
+	display: none;
+}
+
+label#label {
+	font-weight: 700;
+	text-decoration: underline;
 }
