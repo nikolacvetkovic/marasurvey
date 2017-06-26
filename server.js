@@ -29,74 +29,74 @@ var surveySchema = new mongoose.Schema({
 
 var Survey = mongoose.model("Survey", surveySchema);
 
-var serviceNoEBSchema = new mongoose.Schema({
-  1: String,
-  2: String,
-  3: String,
-  4: String,
-  5: String,
-});
+// var serviceNoEBSchema = new mongoose.Schema({
+//   1: String,
+//   2: String,
+//   3: String,
+//   4: String,
+//   5: String,
+// });
 
-var ServiceNoEB = mongoose.model("ServiceNoEB", serviceNoEBSchema);
+// var ServiceNoEB = mongoose.model("ServiceNoEB", serviceNoEBSchema);
 
-ServiceNoEB.create({
-    1: "Nemate uslove za koriščenje ovih usluga",
-    2: "Preferirate tradicionalan način pružanja usluge",
-    3: "Nedovoljno poznavanje elektronskog bankarstva",
-    4: "Nedostatak sigurnosti u izvršenje transakcija",
-    5: "Mogućnost zloupotrebe sredstava"
-}, function(err, serviceNoEB){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(serviceNoEB);
-    }
-});
+// ServiceNoEB.create({
+//     1: "Nemate uslove za koriščenje ovih usluga",
+//     2: "Preferirate tradicionalan način pružanja usluge",
+//     3: "Nedovoljno poznavanje elektronskog bankarstva",
+//     4: "Nedostatak sigurnosti u izvršenje transakcija",
+//     5: "Mogućnost zloupotrebe sredstava"
+// }, function(err, serviceNoEB){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(serviceNoEB);
+//     }
+// });
 
-var opinion1EBSchema = new mongoose.Schema({
-    1: String,
-    2: String,
-    3: String,
-    4: String
-});
+// var opinion1EBSchema = new mongoose.Schema({
+//     1: String,
+//     2: String,
+//     3: String,
+//     4: String
+// });
 
-var Opinion1EB = mongoose.model("Opinion1EB", opinion1EBSchema);
+// var Opinion1EB = mongoose.model("Opinion1EB", opinion1EBSchema);
 
-Opinion1EB.create({
-    1: "Potpuno nesiguran",
-    2: "Više nesiguran nego siguran",
-    3: "Više siguran nego nesiguran",
-    4: "Potpuno siguran"
-}, function(err, opinion1EB){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(opinion1EB);
-    }
-});
+// Opinion1EB.create({
+//     1: "Potpuno nesiguran",
+//     2: "Više nesiguran nego siguran",
+//     3: "Više siguran nego nesiguran",
+//     4: "Potpuno siguran"
+// }, function(err, opinion1EB){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(opinion1EB);
+//     }
+// });
 
-var opinion2EBSchema = new mongoose.Schema({
-    1: String,
-    2: String,
-    3: String,
-    4: String
-});
+// var opinion2EBSchema = new mongoose.Schema({
+//     1: String,
+//     2: String,
+//     3: String,
+//     4: String
+// });
 
-var Opinion2EB = mongoose.model("Opinion2EB", opinion2EBSchema);
+// var Opinion2EB = mongoose.model("Opinion2EB", opinion2EBSchema);
 
-Opinion2EB.create({
-    1: "Koristim elektronske usluge već neko vreme",
-    2: "Nisam znao/la za elektronsko bankarstvo ranije - sada sam veoma zainteresovan/a",
-    3: "Znao/la sam za eletronsko bankarstvo i ranije - ne želim da ga koristim",
-    4: "Znao/la sam i ranije za elektronsko bankarstvo - koristiću ga",
-    5: "Nisam znao/la za elektronsko bankarstvo ranije i dalje me ne zanima"
-}, function(err, opinion2EB){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(opinion2EB);
-    }
-});
+// Opinion2EB.create({
+//     1: "Koristim elektronske usluge već neko vreme",
+//     2: "Nisam znao/la za elektronsko bankarstvo ranije - sada sam veoma zainteresovan/a",
+//     3: "Znao/la sam za eletronsko bankarstvo i ranije - ne želim da ga koristim",
+//     4: "Znao/la sam i ranije za elektronsko bankarstvo - koristiću ga",
+//     5: "Nisam znao/la za elektronsko bankarstvo ranije i dalje me ne zanima"
+// }, function(err, opinion2EB){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(opinion2EB);
+//     }
+// });
 
 server.set("view engine", "ejs");
 server.use(express.static("public"));
