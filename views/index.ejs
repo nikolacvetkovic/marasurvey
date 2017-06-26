@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Anketa</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+	
+	<div class="ui main container segment">
+			<div class="ui huge header">Anketa o korišćenju elektronskog bankarstva</div>
+				<form class="ui form" action="/survey" method="post">
+					<div class="inline fields">
+						<label for="gender">Pol:</label>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>Muški</label>
+								<input type="radio" name="gender">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<label>Ženski</label>
+								<input type="radio" name="gender">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+	</div>
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous">
+  	</script>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+	<script type="text/javascript">
+		$('.ui.radio.checkbox')
+  			.checkbox();
+	</script>
+</body>
+</html>
