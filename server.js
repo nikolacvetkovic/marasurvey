@@ -127,7 +127,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// User.register(new User({username: "maracar"}), "diplomskianketa", function(err, user){
+// User.register(new User({username: "cvele"}), "1505", function(err, user){
 //     if(err){
 //         console.log(err);
 //     } else {
@@ -534,6 +534,11 @@ server.post("/login", passport.authenticate("local", {
     successRedirect: "/results",
     failureRedirect: "/login"
 }), function(req, res){
+});
+
+server.get("/logout", function(req, res) {
+   req.logout();
+   res.redirect("/login");
 });
 
 function isLoggedIn(req, res, next){
