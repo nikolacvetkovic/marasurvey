@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Anketa</title>
+	<link rel="icon" href="/img/favicon.ico"/>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+  	</script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="ui main container">
+			<div class="title" style="position:relative; text-align: center; padding-top: 100px; padding-bottom: 70px; font-size: 50px;">Login
+			<i class="sign in icon"></i>
+			
+			</div>
+			<div style="text-align: center">
+			    <form class="ui form" action="/login" method="post">
+			        <div class="two fields">
+			            <div class="field">
+                          <label style="color: rgb(214, 90, 255)">Korisničko ime</label>
+                          <input placeholder="korisničko ime" type="text" name="username">
+                        </div>
+                        <div class="field">
+                          <label style="color: rgb(214, 90, 255)" class="title">Šifra</label>
+                          <input placeholder="šifra" type="password" name="password">
+                        </div>
+			        </div>
+			        <button style="display: block; width: 200px; margin: 0 auto 0 auto;" class="ui block inverted purple button">Pošalji</button>
+			    </form>
+			</div>
+			
+			
+			
+	</div>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+	<script type="text/javascript">
+		$('.ui.radio.checkbox')
+  			.checkbox();
+  		$('.ui.checkbox')
+  			.checkbox();
+	</script>
+	<script type="text/javascript" src="/js/myscript.js"></script>
+</body>
+</html>

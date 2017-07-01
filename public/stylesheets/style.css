@@ -34,3 +34,34 @@ label#label {
 	font-weight: 700;
 	text-decoration: underline;
 }
+
+div#dropdown {
+	display: block;
+	margin: 0 25% 0 25%;
+	text-align: center;
+}
+
+div.menu {
+	margin: 0 auto 0 auto;
+}
+
+.ui.table td, .ui.table thead th {
+	text-align: center;
+}
+
+#table {
+	text-align: center;
+}
+
+#results {
+	padding-top: 220px;
+	margin: 0 auto 0 auto;
+	text-align: center;
+}
+
+/*table.ui.very.celled.table {*/
+/*	display: block;*/
+/*	text-align: center;*/
+/*	margin: 0 auto 0 auto;*/
+/*}*/
+
