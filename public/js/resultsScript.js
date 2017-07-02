@@ -17,13 +17,27 @@ $("#gender").click(function(){
                 data: {
                     labels: ["Muškarci", "Žene"],
                     datasets: [{
-                        label: "My First dataset",
+                        label: "",
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
+                        borderWidth: 1,
                         data: [data.mBr, data.zBr]
                     }]
                 },
-                options: {} 
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                            }]
+                    },
+                    scales: {
+                        xAxes: [{
+                            barThickness: 50
+                            }]
+                    }
+                } 
             });
         } else {
             window.location.href= "/login";
