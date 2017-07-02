@@ -10,6 +10,21 @@ $("#gender").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            // var ctx = document.getElementById("myChart").getC
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Muškarci", "Žene"],
+                    datasets: [{
+                        label: "My First dataset",
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [data.mBr, data.zBr]
+                    }]
+                },
+                options: {} 
+            });
         } else {
             window.location.href= "/login";
         }
