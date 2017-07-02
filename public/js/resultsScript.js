@@ -12,32 +12,34 @@ $("#gender").click(function(){
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
             // var ctx = document.getElementById("myChart").getC
-            var chart = new Chart(ctx, {
+            new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
-                    labels: ["Muškarci", "Žene"],
-                    datasets: [{
-                        label: "",
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        borderWidth: 1,
-                        data: [data.mBr, data.zBr]
-                    }]
+                  labels: ["Muskarci", "Zene"],
+                  datasets: [
+                    {
+                      label: "Population (millions)",
+                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                      data: [154, 126]
+                    }
+                  ]
                 },
                 options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                            }]
-                    },
-                    scales: {
-                        xAxes: [{
-                            barThickness: 50
-                            }]
-                    }
-                } 
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Predicted world population (millions) in 2050'
+                  },
+                  scales: {
+                      yAxes: [{ticks: {
+                          beginAtZero: "true"
+                      }
+                      }],
+                      xAxes: [{
+                          barPercentage: 0.4
+                      }]
+                  }
+                }
             });
         } else {
             window.location.href= "/login";
