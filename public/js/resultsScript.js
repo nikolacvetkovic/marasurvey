@@ -11,16 +11,18 @@ $("#gender").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            // var ctx = document.getElementById("myChart").getC
             new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
-                  labels: ["Muskarci", "Zene"],
+                  labels: ["Muškarci", "Žene"],
                   datasets: [
                     {
-                      label: "Population (millions)",
-                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                      data: [154, 126]
+                      label: "Broj ispitanika",
+                      data: [data.mBr, data.zBr],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2"],
+                      borderWidth: 1
                     }
                   ]
                 },
@@ -28,15 +30,16 @@ $("#gender").click(function(){
                   legend: { display: false },
                   title: {
                     display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    text: 'Raspodela ispitanika po polu'
                   },
                   scales: {
-                      yAxes: [{ticks: {
-                          beginAtZero: "true"
-                      }
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
                       }],
                       xAxes: [{
-                          barPercentage: 0.4
+                        barPercentage: 0.4
                       }]
                   }
                 }
@@ -60,6 +63,40 @@ $("#year").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["18-35", "36-55", "56+"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br, data.c3Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela ispitanika po starosti'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -79,6 +116,40 @@ $("#education").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["IV stepen", "VI stepen", "VII stepen"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br, data.c3Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela ispitanika po obrazovanju'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -97,6 +168,40 @@ $("#useEB").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["Da", "Ne"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Stepen korišćenja elektronskog bankarstva'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -126,6 +231,53 @@ $("#serviceEB").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: [
+                      "Uvid u trenutno stanje na računu",
+                      "Pregled i štampu izvoda",
+                      "Domaći platni promet",
+                      "Međunarodni platni promet",
+                      "Kupoprodaja deviza",
+                      "Uvid u kursnu listu određene banke",
+                      "Uvid u štednju, platne kartice i kredite",
+                      "Evidenciju priliva i odliva sredstava",
+                      "Pregled prometa za određeni period",
+                      "Naručivanje čekova",
+                      "Plaćanje računa",
+                      "Sve od navedenog"
+                    ],
+                  datasets: [
+                    {
+                      label: "",
+                      data: [data.c1Br, data.c2Br, data.c3Br, data.c4Br, data.c5Br, data.c6Br, data.c7Br, data.c8Br, data.c9Br, data.c10Br, data.c11Br, data.c12Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)", "rgba(43, 185, 55, 0.4)","rgba(226, 69, 192, 0.4)", "rgba(69, 226, 194, 0.4)", "rgba(156, 150, 237, 0.4)", "rgba(24, 17, 232, 0.73)", "rgba(18, 16, 17, 0.4)", "rgba(87, 238, 150, 0.4)", "rgba(230, 251, 75, 0.4)", "rgba(75, 163, 251, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela po vrstama usluga koje koriste'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -148,6 +300,40 @@ $("#serviceNoEB").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["Nemate uslove za koriščenje ovih usluga", "Preferirate tradicionalan način pružanja usluge", "Nedovoljno poznavanje elektronskog bankarstva", "Nedostatak sigurnosti u izvršenje transakcija", "Mogućnost zloupotrebe sredstava"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br, data.c3Br, data.c4Br, data.c5Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)", "rgba(43, 185, 55, 0.4)", "rgba(87, 238, 150, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela po razlozima zašto ne koriste elektronsko bankarstvo'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -170,6 +356,40 @@ $("#opinion1EB").click(function(){
                     '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                 '</tbody>'+
             '</table>');
+            var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["Potpuno nesiguran", "Više nesiguran nego siguran", "Više siguran nego nesiguran", "Potpuno siguran"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br, data.c3Br, data.c4Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)", "rgba(87, 238, 150, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela na osnovu mišljenja o sigurnosti novca'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
@@ -192,6 +412,40 @@ $("#opinion2EB").click(function(){
                         '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                     '</tbody>'+
                 '</table>');
+                var ctx = $("#myChart")[0].getContext("2d");
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["Koristim elektronske usluge već neko vreme", "Nisam znao/la za elektronsko bankarstvo ranije - sada sam veoma zainteresovan/a", "Znao/la sam za eletronsko bankarstvo i ranije - ne želim da ga koristim", "Znao/la sam i ranije za elektronsko bankarstvo - koristiću ga", "Nisam znao/la za elektronsko bankarstvo ranije i dalje me ne zanima"],
+                  datasets: [
+                    {
+                      label: "Broj ispitanika",
+                      data: [data.c1Br, data.c2Br, data.c3Br, data.c4Br, data.c5Br],
+                      fill: false,
+                      backgroundColor: ["rgba(63, 127, 191, 0.4)", "rgba(195, 59, 95, 0.4)", "rgba(239, 137, 35, 0.4)", "rgba(43, 185, 55, 0.4)", "rgba(87, 238, 150, 0.4)"],
+                      borderColor: ["#3e95cd", "#8e5ea2", "rgb(184, 99, 13)", "rgb(184, 99, 13)", "rgb(184, 99, 13)"],
+                      borderWidth: 1
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Raspodela na osnovu stava o elektronskom bankarstvu'
+                  },
+                  scales: {
+                      yAxes: [{
+                        ticks: {
+                            beginAtZero: "true"
+                        } 
+                      }],
+                      xAxes: [{
+                        barPercentage: 0.4
+                      }]
+                  }
+                }
+            });
         } else {
             window.location.href= "/login";
         }
