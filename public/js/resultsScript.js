@@ -1,3 +1,4 @@
+var chart;
 $("#gender").click(function(){
     $.get("/results/gender", function(data){
         if(data.mBr !== undefined){
@@ -11,7 +12,8 @@ $("#gender").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["Muškarci", "Žene"],
@@ -39,7 +41,10 @@ $("#gender").click(function(){
                         } 
                       }],
                       xAxes: [{
-                        barPercentage: 0.4
+                        barPercentage: 0.4,
+                        ticks: {
+                            autoSkip: false
+                        }
                       }]
                   }
                 }
@@ -64,7 +69,8 @@ $("#year").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["18-35", "36-55", "56+"],
@@ -117,7 +123,8 @@ $("#education").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["IV stepen", "VI stepen", "VII stepen"],
@@ -169,7 +176,8 @@ $("#useEB").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["Da", "Ne"],
@@ -232,7 +240,8 @@ $("#serviceEB").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: [
@@ -273,7 +282,10 @@ $("#serviceEB").click(function(){
                         } 
                       }],
                       xAxes: [{
-                        barPercentage: 0.4
+                        barPercentage: 0.4,
+                        ticks: {
+                            autoSkip: false
+                        }
                       }]
                   }
                 }
@@ -301,7 +313,8 @@ $("#serviceNoEB").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["Nemate uslove za koriščenje ovih usluga", "Preferirate tradicionalan način pružanja usluge", "Nedovoljno poznavanje elektronskog bankarstva", "Nedostatak sigurnosti u izvršenje transakcija", "Mogućnost zloupotrebe sredstava"],
@@ -329,7 +342,10 @@ $("#serviceNoEB").click(function(){
                         } 
                       }],
                       xAxes: [{
-                        barPercentage: 0.4
+                        barPercentage: 0.4,
+                        ticks: {
+                            autoSkip: false
+                        }
                       }]
                   }
                 }
@@ -357,7 +373,8 @@ $("#opinion1EB").click(function(){
                 '</tbody>'+
             '</table>');
             var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["Potpuno nesiguran", "Više nesiguran nego siguran", "Više siguran nego nesiguran", "Potpuno siguran"],
@@ -385,7 +402,10 @@ $("#opinion1EB").click(function(){
                         } 
                       }],
                       xAxes: [{
-                        barPercentage: 0.4
+                        barPercentage: 0.4,
+                        ticks: {
+                            autoSkip: false
+                        }
                       }]
                   }
                 }
@@ -412,8 +432,9 @@ $("#opinion2EB").click(function(){
                         '<tr><td><h4 class="ui header"><div class="content">Ukupno</div></h4></td><td>'+data.uk+'</td><td></td></tr>'+
                     '</tbody>'+
                 '</table>');
-                var ctx = $("#myChart")[0].getContext("2d");
-            new Chart(document.getElementById("myChart"), {
+            var ctx = $("#myChart")[0].getContext("2d");
+            if(chart != undefined) chart.destroy();
+            chart = new Chart(document.getElementById("myChart"), {
                 type: 'bar',
                 data: {
                   labels: ["Koristim elektronske usluge već neko vreme", "Nisam znao/la za elektronsko bankarstvo ranije - sada sam veoma zainteresovan/a", "Znao/la sam za eletronsko bankarstvo i ranije - ne želim da ga koristim", "Znao/la sam i ranije za elektronsko bankarstvo - koristiću ga", "Nisam znao/la za elektronsko bankarstvo ranije i dalje me ne zanima"],
@@ -441,7 +462,10 @@ $("#opinion2EB").click(function(){
                         } 
                       }],
                       xAxes: [{
-                        barPercentage: 0.4
+                        barPercentage: 0.4,
+                        ticks: {
+                            autoSkip: false
+                        }
                       }]
                   }
                 }
